@@ -2,7 +2,7 @@
 name = "fastapi-gcp"
 version = "0.1.0"
 description = ""
-authors = ["Your Name <you@example.com>"]
+authors = ["Hélio Xavier <helio.xavierleal@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
