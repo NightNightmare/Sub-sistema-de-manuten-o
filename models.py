@@ -8,6 +8,7 @@ class Aeronave(Model):
     # Adicionando opções de escolha para o campo disponibilidade
     DISPONIBILIDADE_CHOICES = [("Disponível", "Disponível"), ("Não Disponível", "Não Disponível")]
     disponibilidade = fields.CharField(max_length=15, choices=DISPONIBILIDADE_CHOICES, default="Disponível")
+    
     descricao = fields.CharField(max_length=1000)
 
 class Manutencao(Model):
@@ -15,6 +16,7 @@ class Manutencao(Model):
     id_aeronave = fields.ForeignKeyField("models.Aeronave", related_name="id", on_delete="CASCADE")
     tipo_manutencao = fields.CharField(max_length=255)
     data = fields.DatetimeField()
+    
     # Adicionando opções de escolha para o campo observacao
     OPCOES_OBSERVACAO = [("fase_inicial", "Fase Inicial"), ("em_progresso", "Em Progresso"), ("concluida", "Concluída")]
     observacao = fields.CharField(max_length=255, choices=OPCOES_OBSERVACAO)
