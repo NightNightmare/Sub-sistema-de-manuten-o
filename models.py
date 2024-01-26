@@ -13,7 +13,7 @@ class Aeronave(Model):
 
 class Manutencao(Model):
     id = fields.IntField(pk=True)
-    id_aeronave = fields.ForeignKeyField("models.Aeronave", related_name="id", on_delete="CASCADE")
+    id_aeronave = fields.ForeignKeyField("models.Aeronave", related_name="id_aeronav", on_delete="CASCADE")
     tipo_manutencao = fields.CharField(max_length=255)
     data = fields.DatetimeField()
     
@@ -25,13 +25,13 @@ class Manutencao(Model):
     # manutencao = await Manutencao.create(id_aeronave=aeronave_instance, tipo_manutencao="Reparo", data=now, observacao="em_progresso")
 
 class EquipeManutencao(Model):
-    id_equipa = fields.IntField(pk=True)
+    id = fields.IntField(pk=True)
     nome = fields.CharField(max_length=255)
 
 class TarefaManutencao(Model):
     id = fields.IntField(pk=True)
-    aeronave = fields.ForeignKeyField('models.Aeronave', related_name='id')
-    equipa = fields.ForeignKeyField('models.EquipeManutencao', related_name='id')
+    aeronave = fields.ForeignKeyField('models.Aeronave', related_name='id_aeronaves')
+    equipa = fields.ForeignKeyField('models.EquipeManutencao', related_name='id_equipa')
     # ka atxal precisso pmd no ta txomal na tabela manutenção la na tipo_manutenção, nhos da opinião
     # tipo_tarefa = fields.CharField(max_length=255)
     data_inicio = fields.DatetimeField()
@@ -45,12 +45,12 @@ class Peca(Model):
 
 class UsoPeca(Model):
     id = fields.IntField(pk=True)
-    id_tarefa = fields.ForeignKeyField('models.TarefaManutencao', related_name='id')
-    id_peca = fields.ForeignKeyField('models.Peca', related_name='id')
+    id_tarefa = fields.ForeignKeyField('models.TarefaManutencao', related_name='id_tarefa')
+    id_peca = fields.ForeignKeyField('models.Peca', related_name='id_peca')
     quntidade_necessaria = fields.IntField()
 
 class RelatorioManutencao(Model):
     id = fields.IntField(pk=True)
-    aeronave = fields.ForeignKeyField('models.Aeronave', related_name='id')
+    aeronave = fields.ForeignKeyField('models.Aeronave', related_name='id_aeronave')
     descricao = fields.CharField(max_length=1000)
     data_criacao = fields.DatetimeField(null=True)
