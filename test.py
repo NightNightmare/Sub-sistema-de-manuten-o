@@ -3,7 +3,7 @@ from fastapi.responses import HTMLResponse
 from pydantic import BaseModel
 from datetime import datetime
 from database import init_db
-from models import Aeronave, Manutencao, EquipeManutencao, TarefaManutencao, Peca, UsoPeca, RelatorioManutencao
+from models import Aeronave, Manutencao, EquipeManutencao, TarefaManutencao, Peca, UsoPeca, RelatorioManutencao, EquipeManutencao
 
 app = FastAPI(title="fastapi-gcp")
 init_db(app)
@@ -15,6 +15,11 @@ def healthcheck():
 class CreateAeronavePayload(BaseModel):
     Nome: str
     descricao: str
+    modelo: str
+    descricao: str
+
+class CreateEquipaPayload(BaseModel):
+    nome: str
 
 class CreateTarefaManutencaoPayload(BaseModel):
     aeronave: int  
@@ -42,6 +47,18 @@ class CreateRelatorioManutencaoPayload(BaseModel):
 async def create_aeronave(payload: CreateAeronavePayload):
     aeronave = await Aeronave.create(**payload.dict())
     return {"message": f"Aeronave created successfully with id {aeronave.id}"}
+
+@app.post("/equipa")
+async def CreateEquipaPayload(payload: CreateEquipaPayload):
+    equipa = await EquipeManutencao.create(**payload.dict())
+    return {"message": f"Equipa created successfully with id {equipa.id}"}
+
+@app.get("/equipa/{id}")
+async def get_equipa_by_id(id: int):
+    if not (equipa := await EquipeManutencao.get_or_none(id=id)):
+        raise HTTPException(status_code=404, detail="EquipeManutencao not found")
+
+    return equipa
 
 @app.get("/aeronave/{Nome}")
 async def get_aeronave_by_nome(Nome: str):
@@ -71,6 +88,13 @@ async def get_manutencao_by_id(id: int):
 async def create_peca(payload: CreatePecaPayload):
     peca = await Peca.create(**payload.dict())
     return {"message": f"Peca created successfully with id {peca.id}"}
+
+@app.get("/peca/{id}")
+async def get_peca_by_id(id: int):
+    if not (peca := await Peca.get_or_none(id=id)):
+        raise HTTPException(status_code=404, detail="peca not found")
+
+    return peca
 
 @app.post("/usopeca")
 async def create_uso_peca(payload: CreateUsoPecaPayload):
