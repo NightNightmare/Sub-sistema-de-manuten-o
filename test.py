@@ -3,10 +3,40 @@ from fastapi.responses import HTMLResponse
 from pydantic import BaseModel
 from datetime import datetime
 from database import init_db
+import json
 from models import Aeronave, Manutencao, EquipeManutencao, TarefaManutencao, Peca, UsoPeca, RelatorioManutencao, EquipeManutencao
 
 app = FastAPI(title="fastapi-gcp")
 init_db(app)
+
+
+
+with open('aeronave.json', 'r') as file:
+    dados_aeronaves = json.load(file)
+
+@app.get("/dados_aeronaves")
+async def get_dados_aeronaves():
+    return dados_aeronaves
+
+@app.post("/manutencao/{aeronave_id}")
+async def create_tarefa_manutencao(aeronave_id: int):
+   
+    aeronave_encontrada = None
+    for aeronave in dados_aeronaves:
+        if aeronave["id"] == aeronave_id:
+            aeronave_encontrada = aeronave
+            break
+
+    if not aeronave_encontrada:
+        raise HTTPException(status_code=404, detail="Aeronave não encontrada")
+
+    
+    if aeronave_encontrada["disponibilidade"] == "Disponivel":
+        # Criar a lógica para criar a tarefa de manutenção aqui
+        return {"message": "Tarefa de manutenção criada para a aeronave disponível"}
+    else:
+        raise HTTPException(status_code=400, detail="Aeronave não disponível para manutenção")
+
 
 @app.get("/", response_class=HTMLResponse)
 def healthcheck():

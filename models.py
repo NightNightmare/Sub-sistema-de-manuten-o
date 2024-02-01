@@ -15,7 +15,7 @@ class Manutencao(Model):
     id = fields.IntField(pk=True)
     id_aeronave = fields.ForeignKeyField("models.Aeronave", related_name="id_aeronav", on_delete="CASCADE")
     tipo_manutencao = fields.CharField(max_length=255)
-    data = fields.DatetimeField()
+    data = fields.DateField()
     
     # Adicionando opções de escolha para o campo observacao
     OPCOES_OBSERVACAO = [("fase_inicial", "Fase Inicial"), ("em_progresso", "Em Progresso"), ("concluida", "Concluída")]
@@ -30,7 +30,7 @@ class EquipeManutencao(Model):
 
 class TarefaManutencao(Model):
     id = fields.IntField(pk=True)
-    aeronave = fields.ForeignKeyField('models.Aeronave', related_name='id_aeronaves')
+    id_manutencao = fields.ForeignKeyField('models.Manutencao', related_name='id_de_Manutencao')
     equipa = fields.ForeignKeyField('models.EquipeManutencao', related_name='id_equipa')
     # ka atxal precisso pmd no ta txomal na tabela manutenção la na tipo_manutenção, nhos da opinião
     # tipo_tarefa = fields.CharField(max_length=255)
@@ -47,10 +47,9 @@ class UsoPeca(Model):
     id = fields.IntField(pk=True)
     id_tarefa = fields.ForeignKeyField('models.TarefaManutencao', related_name='id_tarefa')
     id_peca = fields.ForeignKeyField('models.Peca', related_name='id_peca')
-    quntidade_necessaria = fields.IntField()
+    quantidade_necessaria = fields.IntField()
 
 class RelatorioManutencao(Model):
     id = fields.IntField(pk=True)
-    aeronave = fields.ForeignKeyField('models.Aeronave', related_name='id_aeronave')
-    descricao = fields.CharField(max_length=1000)
+    id_tarefa = fields.ForeignKeyField('models.TarefaManutencao', related_name='id_de_tarefa')
     data_criacao = fields.DatetimeField(null=True)

@@ -1,0 +1,143 @@
+[
+    {
+      "id": 1,
+      "nome": "Boeing 747",
+      "modelo": "747-400",
+      "disponibilidade": "Disponivel",
+      "descricao": "Um avião de passageiros de longo alcance fabricado pela Boeing."
+    },
+    {
+      "id": 2,
+      "nome": "Airbus A380",
+      "modelo": "A380-800",
+      "disponibilidade": "Não Disponível",
+      "descricao": "Um avião de passageiros de quatro motores fabricado pela Airbus."
+    },
+    {
+      "id": 3,
+      "nome": "Boeing 787 Dreamliner",
+      "modelo": "787-9",
+      "disponibilidade": "Disponivel",
+      "descricao": "Um avião bimotor de médio porte fabricado pela Boeing."
+    },
+    {
+      "id": 4,
+      "nome": "Embraer E190",
+      "modelo": "E190-E2",
+      "disponibilidade": "Não Disponível",
+      "descricao": "Um avião bimotor de corredor único fabricado pela Embraer."
+    },
+    {
+      "id": 5,
+      "nome": "Bombardier CRJ200",
+      "modelo": "CRJ200",
+      "disponibilidade": "Disponivel",
+      "descricao": "Um avião regional fabricado pela Bombardier Aerospace."
+    },
+    {
+      "id": 6,
+      "nome": "Cessna 172",
+      "modelo": "172 Skyhawk",
+      "disponibilidade": "Não Disponível",
+      "descricao": "Um avião monomotor a pistão fabricado pela Cessna Aircraft Company."
+    },
+    {
+      "id": 7,
+      "nome": "Gulfstream G650",
+      "modelo": "G650ER",
+      "disponibilidade": "Disponivel",
+      "descricao": "Um jato executivo de longo alcance fabricado pela Gulfstream Aerospace."
+    },
+    {
+      "id": 8,
+      "nome": "Piper PA-28 Cherokee",
+      "modelo": "PA-28-181 Archer",
+      "disponibilidade": "Não Disponível",
+      "descricao": "Um avião monomotor a pistão de quatro lugares fabricado pela Piper Aircraft."
+    },
+    {
+      "id": 9,
+      "nome": "Airbus A320",
+      "modelo": "A320neo",
+      "disponibilidade": "Disponivel",
+      "descricao": "Um avião de passageiros de corredor único fabricado pela Airbus."
+    },
+    {
+      "id": 10,
+      "nome": "Boeing 737",
+      "modelo": "737-800",
+      "disponibilidade": "Não Disponível",
+      "descricao": "Um avião de passageiros de corredor único fabricado pela Boeing."
+    },
+    {
+      "id": 11,
+      "nome": "Cessna Citation",
+      "modelo": "Citation X",
+      "disponibilidade": "Disponivel",
+      "descricao": "Um avião executivo fabricado pela Cessna Aircraft Company."
+    },
+    {
+      "id": 12,
+      "nome": "Bombardier Global 6000",
+      "modelo": "Global 6000",
+      "disponibilidade": "Não Disponível",
+      "descricao": "Um jato executivo de longo alcance fabricado pela Bombardier Aerospace."
+    },
+    {
+      "id": 13,
+      "nome": "Embraer Phenom 300",
+      "modelo": "Phenom 300",
+      "disponibilidade": "Disponivel",
+      "descricao": "Um jato executivo leve fabricado pela Embraer."
+    },
+    {
+      "id": 14,
+      "nome": "Boeing 777",
+      "modelo": "777-300ER",
+      "disponibilidade": "Não Disponível",
+      "descricao": "Um avião de passageiros de longo alcance fabricado pela Boeing."
+    },
+    {
+      "id": 15,
+      "nome": "Airbus A350",
+      "modelo": "A350-900",
+      "disponibilidade": "Disponivel",
+      "descricao": "Um avião de passageiros de longo alcance fabricado pela Airbus."
+    },
+    {
+      "id": 16,
+      "nome": "Cessna Caravan",
+      "modelo": "208 Caravan",
+      "disponibilidade": "Não Disponível",
+      "descricao": "Um avião monomotor turboélice fabricado pela Cessna Aircraft Company."
+    },
+    {
+      "id": 17,
+      "nome": "Gulfstream G550",
+      "modelo": "G550",
+      "disponibilidade": "Disponivel",
+      "descricao": "Um jato executivo de médio a longo alcance fabricado pela Gulfstream Aerospace."
+    },
+    {
+      "id": 18,
+      "nome": "Bombardier Challenger 350",
+      "modelo": "Challenger 350",
+      "disponibilidade": "Não Disponível",
+      "descricao": "Um jato executivo fabricado pela Bombardier Aerospace."
+    },
+    {
+      "id": 19,
+      "nome": "Embraer Legacy 500",
+      "modelo": "Legacy 500",
+      "disponibilidade": "Disponivel",
+      "descricao": "Um jato executivo de médio porte fabricado pela Embraer."
+    },
+    {
+      "id": 20,
+      "nome": "Pilatus PC-12",
+      "modelo": "PC-12 NG",
+      "disponibilidade": "Não Disponível",
+      "descricao": "Um avião monomotor turboélice fabricado pela Pilatus Aircraft."
+    }
+  ]
+  
