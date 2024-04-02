@@ -43,10 +43,10 @@ def healthcheck():
     return "<h1>All good!</h2>"
 
 class CreateAeronavePayload(BaseModel):
-    Nome: str
+    nome: str
     descricao: str
     modelo: str
-    descricao: str
+    disponibilidade: str
 
 class CreateEquipaPayload(BaseModel):
     nome: str
@@ -90,9 +90,9 @@ async def get_equipa_by_id(id: int):
 
     return equipa
 
-@app.get("/aeronave/{Nome}")
-async def get_aeronave_by_nome(Nome: str):
-    if not (aeronave := await Aeronave.get_or_none(Nome=Nome)):
+@app.get("/aeronave/{nome}")
+async def get_aeronave_by_nome(nome: str):
+    if not (aeronave := await Aeronave.get_or_none(nome=nome)):
         raise HTTPException(status_code=404, detail="Aeronave not found")
 
     return aeronave
